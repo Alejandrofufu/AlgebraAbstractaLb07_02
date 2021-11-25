@@ -95,14 +95,15 @@ int main() {
         if (Gcd(c2, n) == 1) {
             p = inversoM(e, e2);// x 
             q = (1 - e * p) / e2; q = q * -1; // -y
-            // mensaje = c^x * c2^-y mod n  == (c^x mod n)(c2 ^ -y ) mod n
+            d = inversoM(c2, n);
+            // mensaje = c^x * d^-y mod n  == (c^x mod n)(d ^ -y ) mod n
             p = modular(c, p, n); //(c^x mod n) = p
-            q = modular(c2, q, n);//(c2 ^ -y ) = q
+            q = modular(d, q, n);//(d ^ -y ) = q
             phi = p * q;
             mensaje = modular(phi, 1, n); // phi mod n = mensaje
         }
-    }*/
-
+    }
+    */
 
     
     return 0;

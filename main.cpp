@@ -69,9 +69,8 @@ long long int modular(unsigned long long int base, unsigned long long int exp, u
 }
 
 int main() {
-
     //pregunta a;
-    long long int e = 65537, n = 999630013489, c = 747120213790, mensaje,p,q,phi,d;
+    long long int e = 6537, n = 999630013489, c = 747120213790, mensaje,p,q,phi,d;
     for (long long i = 2; i < n; i++) {
         if (!(n % i)) {
             p = i; q = n / p;
@@ -79,32 +78,7 @@ int main() {
         }
     }
     phi = (p - 1) * (q - 1);
-    d = inversoM(e, phi);
-    mensaje = modular(c, d, n);
-    cout << "El mensaje es: " << mensaje;
-    c = modular(mensaje, e, n);
-    cout << "\nEl encriptado es: " << c; //  c != 747120213790 no se que falla
-
-
-    //preguna b;
-    /*
-    e = 7, n = 35794234179725868774991807832568455403003778024228226193532908190484670252364677411513516111204504060317568667, 
-    c = 35794234179725868774991807832568455403003778024228226193532908190484670252364677411513516052471686245831933544, mensaje, p, q, phi, d;
-    long long e2 = 11, c2 = 35794234179725868774991807832568455403003778024228226193532908190484670252364665786748759822531352444533388184;
-    if (Gcd(e, e2) == 1) {
-        if (Gcd(c2, n) == 1) {
-            p = inversoM(e, e2);// x 
-            q = (1 - e * p) / e2; q = q * -1; // -y
-            d = inversoM(c2, n);
-            // mensaje = c^x * d^-y mod n  == (c^x mod n)(d ^ -y ) mod n
-            p = modular(c, p, n); //(c^x mod n) = p
-            q = modular(d, q, n);//(d ^ -y ) = q
-            phi = p * q;
-            mensaje = modular(phi, 1, n); // phi mod n = mensaje
-        }
-    }
-    */
-
+    cout<<phi<<"\tp: "<<p<<"\tq: "<<q<<"\n";
     
     return 0;
 }
